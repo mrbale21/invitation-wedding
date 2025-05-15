@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Cal+Sans&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Sacramento&display=swap");
+
+@import "tailwindcss";
+
+/* Font lokal */
+@font-face {
+  font-family: "Adelio-Darmanto";
+  src: url("/assets/font/Adelio-Darmanto.otf") format("opentype");
+}
+@font-face {
+  font-family: "Breathing";
+  src: url("/assets/font/Breathing.ttf") format("truetype");
+}
+
+/* index.css atau tailwind.css */
+body,
+#root {
+  background-color: black;
+  color: #f0f3fc; /* opsional */
+}
+
+@theme {
+  --font-adelio-darmanto: "Adelio Darmanto", sans-serif;
+  --font-breathing: "Breathing", sans-serif;
+  --font-raleway: "Raleway", "serif";
+  --font-sacramento: "Sacramento", "serif";
+  --font-poppins: "Poppins", "serif";
+  --font-cal-sans: "Cal-Sans", "serif";
+  --font-akaya-kanadaka: "Akaya-Kanadaka", sans-serif;
+  --color-primary: #ac8b1c;
+  --color-secondary: #ee786c;
+  --color-accent: #f0f3fc;
+
+  --color-soft-pearl: #f2f1ed;
+  --color-aurelion: #ffee32;
+  --color-cyber-yellow: #ffd100;
+  --color-eerie-black: #202020;
+  --color-jet: #333533;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Tambahkan di Tailwind config atau CSS biasa */
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+  -webkit-animation: scroll 30s linear infinite;
+}
