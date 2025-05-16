@@ -19,7 +19,7 @@ function Wish() {
     if (message.text) {
       const timer = setTimeout(() => {
         setMessage({ text: "", type: "" });
-      }, 3000); // 3 detik
+      }, 3000);
       return () => clearTimeout(timer);
     }
   }, [message]);
@@ -73,6 +73,20 @@ function Wish() {
 
   return (
     <div className="w-full flex flex-col items-center pt-6 text-accent pb-9">
+      {/* Notifikasi Tengah Layar */}
+      {message.text && (
+        <div
+          className={`fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 px-6 py-3 rounded-md text-sm text-center shadow-lg ${
+            message.type === "success"
+              ? "bg-green-600 text-white border border-green-400"
+              : "bg-red-600 text-white border border-red-400"
+          }`}
+          style={{ minWidth: "200px", maxWidth: "90%" }}
+        >
+          {message.text}
+        </div>
+      )}
+
       <h1
         data-aos="zoom-in"
         className="font-sacramento text-3xl text-primary font-semibold"
@@ -91,20 +105,7 @@ function Wish() {
         data-aos="zoom-in"
         className="w-[340px] bg-black mt-4 rounded-md border border-accent shadow-xl"
       >
-        <div className="px-4 py-4">
-          {/* ✅ Notifikasi dipindah ke atas */}
-          {message.text && (
-            <div
-              className={`mb-4 p-3 rounded text-sm text-center ${
-                message.type === "success"
-                  ? "bg-green-600 text-white border border-green-400"
-                  : "bg-red-600 text-white border border-red-400"
-              }`}
-            >
-              {message.text}
-            </div>
-          )}
-
+        <div className=" px-4 py-4">
           <h3 className="text-center font-semibold">
             {wishesList.length} Komentar
           </h3>

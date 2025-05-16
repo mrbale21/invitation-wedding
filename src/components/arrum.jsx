@@ -53,54 +53,45 @@ function Arrum({ targetDate }) {
     });
   }, []);
 
-  // Fungsi untuk mendownload file ICS
+  // Fungsi untuk menyimpan acara ke kalender (download file .ics)
   const downloadWeddingICSFile = () => {
-    const title = "Undangan Pernikahan";
-    const description =
-      "Dengan hormat, Anda diundang untuk menghadiri acara pernikahan kami.";
-    const location = "Gedung Serbaguna Cinta Abadi, Jakarta";
+    const title = "Pernikahan Kami";
+    const description = "Acara pernikahan. Jangan lupa hadir ya!";
+    const location = "Gedung Serbaguna, Jakarta"; // Sesuaikan lokasi
+    const startDate = new Date(targetDate);
+    const endDate = new Date(startDate.getTime() + 2 * 60 * 60 * 1000); // +2 jam
 
-    // Acara: 20 Juli 2025, jam 10:00 - 12:00 WIB (WIB = UTC+7)
-    const startDate = new Date(Date.UTC(2025, 6, 20, 3, 0)); // bulan ke-6 = Juli (index 0)
-    const endDate = new Date(Date.UTC(2025, 6, 20, 5, 0));
-
-    const pad = (num) => (num < 10 ? "0" + num : num);
     const formatDate = (date) => {
-      return (
-        date.getUTCFullYear().toString() +
-        pad(date.getUTCMonth() + 1) +
-        pad(date.getUTCDate()) +
-        "T" +
-        pad(date.getUTCHours()) +
-        pad(date.getUTCMinutes()) +
-        pad(date.getUTCSeconds()) +
-        "Z"
-      );
+      return date.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
     };
 
     const icsContent = `
-  BEGIN:VCALENDAR
-  VERSION:2.0
-  BEGIN:VEVENT
-  SUMMARY:${title}
-  DESCRIPTION:${description}
-  LOCATION:${location}
-  DTSTART:${formatDate(startDate)}
-  DTEND:${formatDate(endDate)}
-  END:VEVENT
-  END:VCALENDAR`.trim();
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Your App//Wedding Event//EN
+BEGIN:VEVENT
+UID:${Date.now()}@yourapp.com
+DTSTAMP:${formatDate(new Date())}
+DTSTART:${formatDate(startDate)}
+DTEND:${formatDate(endDate)}
+SUMMARY:${title}
+DESCRIPTION:${description}
+LOCATION:${location}
+END:VEVENT
+END:VCALENDAR
+`.trim();
 
-    // Membuat Blob dari ICS Content
-    const blob = new Blob([icsContent], { type: "application/octet-stream" });
+    const blob = new Blob([icsContent], {
+      type: "text/calendar;charset=utf-8",
+    });
     const url = URL.createObjectURL(blob);
-
-    // Membuat elemen <a> untuk mendownload
     const link = document.createElement("a");
     link.href = url;
-    link.download = "undangan-pernikahan.ics";
+    link.download = "wedding-event.ics";
     document.body.appendChild(link);
-    link.click(); // Trigger download
-    document.body.removeChild(link); // Menghapus elemen setelah download
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
   };
 
   return (
@@ -115,7 +106,7 @@ function Arrum({ targetDate }) {
           Waktu Menuju Pernikahan
         </h1>
       </div>
-      <div className="grid grid-cols-4 place-items-center px-8 text-accent ">
+      <div className="grid grid-cols-4 place-items-center px-8 text-accent">
         <div
           data-aos="fade-right"
           className="flex flex-col justify-center items-center font-raleway z-10"
