@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.6",
+    "add-to-calendar-button-react": "^2.8.9",
     "aos": "^2.3.4",
     "circletype": "^2.3.0",
     "date-fns": "^4.1.0",

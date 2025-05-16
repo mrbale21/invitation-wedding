@@ -1,6 +1,7 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
 import AnimatedPage from "./animatedPage";
 import { motion } from "framer-motion";
+import { IoMdMailOpen } from "react-icons/io";
 
 function Introduction() {
   const navigate = useNavigate();
@@ -38,8 +39,10 @@ function Introduction() {
               </h3>
               <button
                 onClick={handleOpenInvitation}
-                className="bg-accent text-black text-xs hover:text-[13px] p-1 px-2 rounded-md shadow shadow-accent border border-black"
+                className="bg-accent text-black text-xs hover:text-[13px] p-1 px-2 rounded-md shadow shadow-accent border border-black flex items-center gap-2"
               >
+                {" "}
+                <IoMdMailOpen size={20} />
                 Buka Undangan
               </button>
             </div>
