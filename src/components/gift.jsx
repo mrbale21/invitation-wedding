@@ -60,9 +60,8 @@ function Gift() {
 
           {/* Gift Card Box */}
           <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50">
-            <div className="bg-[url(assets/image/bg-gift-card.jpg)] bg-cover h-[530px] w-80 rounded-md shadow-2xl shadow-black text-black">
-              <div className="flex items-center justify-between p-2 px-4">
-                <h2 className="text-lg font-bold mt-8">Send Your Gift</h2>
+            <div className="bg-[url(assets/image/bg-gift-card.jpg)] bg-cover h-[400px] w-80 rounded-md shadow-2xl shadow-black text-black">
+              <div className="flex items-center justify-end p-6 px-6">
                 <div onClick={toggleGiftCard}>
                   <MdClose
                     size={18}
@@ -70,48 +69,32 @@ function Gift() {
                   />
                 </div>
               </div>
-              <p className="text-black text-center mb-4 text-sm font-semibold">
-                Terima kasih atas hadiah Anda!
-              </p>
-              <div className="flex justify-center">
-                <div className="h-30 w-60 border border-black rounded-2xl shadow-sm shadow-gray-400">
-                  <div className="grid items-center px-8 py-4 gap-1">
-                    <h1 className="font-akaya-kanadaka font-semibold text-lg text-black">
-                      Sea Bank
-                    </h1>
-                    <p className="font-raleway text-sm flex items-center gap-1 cursor-pointer">
-                      {rekening}
-                      <RiFileCopyLine
-                        onClick={handleCopy}
-                        className="mt-0.5 text-blue-500 hover:text-blue-700"
-                      />
-                      {copied && (
-                        <span className="text-blue-500 text-sm ml-1">
-                          Tersalin!
-                        </span>
-                      )}
-                    </p>
-                    <p className="font-cal-sans text-sm">a/n Ilham Ramadani</p>
-                  </div>
-                </div>
-              </div>
-              <div className="conainer flex justify-center mt-4">
-                <div className="h-65 w-60 border border-black rounded-2xl shadow-sm shadow-gray-400">
-                  <div className="grid items-center p-5 gap-1">
-                    <h1 className="font-akaya-kanadaka font-semibold text-sm text-black">
-                      Bank Rakyat Indonesia (BRI)
-                    </h1>
-                    <p className="font-raleway flex items-center gap-1 text-sm">
-                      0854323253{" "}
-                      <RiFileCopyLine className="mt-0.5 text-blue-500" />
-                    </p>
-                    <p className="font-cal-sans text-sm">a/n Mamang Bale</p>
-                    <div className="flex justify-center">
-                      <img
-                        src="/src/assets/image/brcode.jpg"
-                        alt="image"
-                        className="h-35 mt-2"
-                      />
+              <div className="flex flex-col justify-center items-center ">
+                <h2 className="text-xl font-bold pb-10">Send Your Gift</h2>
+                <p className="text-black text-center mb-4 text-sm font-semibold">
+                  Terima kasih atas hadiah Anda!
+                </p>
+                <div className="flex justify-center">
+                  <div className="h-30 w-60 border border-black rounded-2xl shadow-sm shadow-gray-400">
+                    <div className="grid items-center px-8 py-4 gap-1">
+                      <h1 className="font-akaya-kanadaka font-semibold text-lg text-black">
+                        Sea Bank
+                      </h1>
+                      <p className="font-raleway text-sm flex items-center gap-1 cursor-pointer">
+                        {rekening}
+                        <RiFileCopyLine
+                          onClick={handleCopy}
+                          className="mt-0.5 text-blue-500 hover:text-blue-700"
+                        />
+                        {copied && (
+                          <span className="text-blue-500 text-sm ml-1">
+                            Tersalin!
+                          </span>
+                        )}
+                      </p>
+                      <p className="font-cal-sans text-sm">
+                        a/n Ilham Ramadani
+                      </p>
                     </div>
                   </div>
                 </div>

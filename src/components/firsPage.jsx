@@ -64,7 +64,7 @@ function FirstPage() {
                 Ilham & Syarifah
               </h3>
               <h5 data-aos="fade-up" className="text-sm font-raleway">
-                14.06.2025
+                15.06.2025
               </h5>
             </div>
           </div>
