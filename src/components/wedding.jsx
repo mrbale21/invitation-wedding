@@ -28,8 +28,8 @@ function Wedding() {
                 <h4>Pukul : 09.00 WIB sd Selesai</h4>
                 <p>Kediaman Mempelai Pria</p>
                 <p className="text-[10px]">
-                  Kp. Hambalang RT 08/03, Desa Hambalang, Kec. Citeureup, Kab.
-                  Bogor
+                  Kp. Hambalang RT 08/03, Desa Hambalang,Kec. Citeureup, <br />
+                  Kab. Bogor
                 </p>
                 <a
                   href="https://maps.app.goo.gl/DriH4YWAqMSQG4Pz5"

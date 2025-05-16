@@ -9,10 +9,20 @@ function Wish() {
   const [wish, setWish] = useState("");
   const [wishesList, setWishesList] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState({ text: "", type: "" });
 
   useEffect(() => {
     fetchWishes();
   }, []);
+
+  useEffect(() => {
+    if (message.text) {
+      const timer = setTimeout(() => {
+        setMessage({ text: "", type: "" });
+      }, 3000); // 3 detik
+      return () => clearTimeout(timer);
+    }
+  }, [message]);
 
   const fetchWishes = async () => {
     try {
@@ -33,7 +43,7 @@ function Wish() {
     if (loading) return;
 
     if (!name || !address || !wish) {
-      alert("Semua kolom wajib diisi!");
+      setMessage({ text: "Semua kolom wajib diisi!", type: "error" });
       return;
     }
 
@@ -48,14 +58,14 @@ function Wish() {
 
     try {
       await addDoc(collection(db, "wishes"), newWish);
-      alert("Ucapan berhasil dikirim!");
+      setMessage({ text: "Ucapan berhasil dikirim!", type: "success" });
       setName("");
       setAddress("");
       setWish("");
       fetchWishes();
     } catch (error) {
       console.error("Error adding wish: ", error);
-      alert("Gagal mengirim ucapan!");
+      setMessage({ text: "Gagal mengirim ucapan!", type: "error" });
     } finally {
       setLoading(false);
     }
@@ -82,6 +92,19 @@ function Wish() {
         className="w-[340px] bg-black mt-4 rounded-md border border-accent shadow-xl"
       >
         <div className="px-4 py-4">
+          {/* ✅ Notifikasi dipindah ke atas */}
+          {message.text && (
+            <div
+              className={`mb-4 p-3 rounded text-sm text-center ${
+                message.type === "success"
+                  ? "bg-green-600 text-white border border-green-400"
+                  : "bg-red-600 text-white border border-red-400"
+              }`}
+            >
+              {message.text}
+            </div>
+          )}
+
           <h3 className="text-center font-semibold">
             {wishesList.length} Komentar
           </h3>
@@ -121,7 +144,6 @@ function Wish() {
             </button>
           </form>
 
-          {/* Komponen scrollable hanya pada ListWishes */}
           <div className="mt-6">
             <ListWishes wishes={wishesList} />
           </div>

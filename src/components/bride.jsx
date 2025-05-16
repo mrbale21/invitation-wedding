@@ -7,14 +7,14 @@ function Bride() {
         <div className="flex flex-col justify-start items-center px-4">
           <div className="flex mt-18 font-cal-sans text-7xl relative gap-6">
             <div className="flex gap-5">
-              <h1 data-aos="fade-right" data-aos-delay="0">
+              <h1 data-aos="fade-right" data-aos-delay="0" className="">
                 I
               </h1>
               <h1 data-aos="fade-left" data-aos-delay="0">
                 S
               </h1>
             </div>
-            <div className="absolute left-2/5 top-0 h-20 w-px bg-primary"></div>
+            <div className="absolute left-2/5 ml-0.5 top-0 h-20 w-px bg-primary"></div>
           </div>
           <div
             data-aos="fade-up"
