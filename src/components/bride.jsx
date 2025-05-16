@@ -73,7 +73,7 @@ function Bride() {
                   data-aos="fade-left"
                   className="font-poppins text-xl text-black font-semibold"
                 >
-                  Ramadhan Ilham
+                  Ilham Ramadhan
                 </h1>
                 <p
                   data-aos="fade-left"
