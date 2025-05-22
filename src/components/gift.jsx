@@ -36,9 +36,12 @@ function Gift() {
         <div
           data-aos="zoom-in"
           data-aos-delay="200"
-          className="font-cal-sans text-[12px] pb-6 text-black z-10"
+          className="font-cal-sans text-[11px] p-6 text-black z-10"
         >
-          klik tombol dibawah untuk kirim hadiah
+          Doa restu keluarga, sahabat, serta rekan-rekan semua di pernikahan
+          kami sudah sangat cukup sebagai hadiah, namun jika memberi merupakan
+          tanda kasih, kami dengan senang hati menerimanya dan tentunya semakin
+          melengkapi kebahagiaan kami.
         </div>
         <button
           data-aos="zoom-in"
