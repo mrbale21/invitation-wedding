@@ -83,14 +83,14 @@ function Bride() {
                   Bapak K.H. Pahrudin & <br />
                   Ibu Siti Aminah
                 </p>
-                <a
+                {/* <a
                   href="https://instagram.com/mr.hamz97"
                   data-aos="zoom-in"
                   className="text-xs font-semibold p-1 px-2 text-center bg-primary hover:border hover:border-black text-accent rounded-sm flex items-center gap-1 mt-4"
                 >
                   <FaInstagram />
                   <p>Instagram</p>
-                </a>
+                </a> */}
               </div>
             </div>
           </div>
@@ -156,14 +156,14 @@ function Bride() {
                   Bapak K.H. Iip Abdul Gofar & <br />
                   Ibu Iis Suryani
                 </p>
-                <a
+                {/* <a
                   href="https://instagram.com/___syrfhazzhra"
                   data-aos="zoom-in"
                   className="text-xs font-semibold p-1 px-2 text-center bg-primary hover:border hover:border-black text-accent rounded-sm flex items-center gap-1 mt-4"
                 >
                   <FaInstagram />
                   <p>Instagram</p>
-                </a>
+                </a> */}
               </div>
             </div>
           </div>
